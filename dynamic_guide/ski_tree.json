@@ -1,0 +1,173 @@
+{
+  "Please tell me what is your age?": {
+    "Child": {
+      "Who are you?": {
+        "Woman": {
+          "I have {0} items for you, please follow me": 3
+        },
+        "Man": {
+          "How are you prepared?": {
+            "Beginner": {
+              "How much RUB are you ready to spend?": {
+                "0..11990": {
+                  "I have {0} items for you, please follow me": 3
+                },
+                "12000..17990": {
+                  "I have {0} items for you, please follow me": 3
+                },
+                "18000..27490": {
+                  "I have {0} items for you, please follow me": 2
+                },
+                "27500..49990": {
+                  "I have {0} items for you, please follow me": 2
+                }
+              }
+            },
+            "Not Beginner": {
+              "What do you want to do?": {
+                "Sport": {
+                  "I have {0} items for you, please follow me": 2
+                },
+                "Not Sport": {
+                  "I have {0} items for you, please follow me": 3
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Adult": {
+      "And who are you?": {
+        "Woman": {
+          "How are you prepared?": {
+            "Beginner": {
+              "Do you want to have invulnerable ski?": {
+                "Invulnerable": {
+                  "I have {0} items for you, please follow me": 1
+                },
+                "Partially invulnerable": {
+                  "What do you want to do?": {
+                    "Prepared slopes": {
+                      "I have {0} items for you, please follow me": 1
+                    },
+                    "Everything": {
+                      "I have {0} items for you, please follow me": 2
+                    }
+                  }
+                },
+                "Do not care": {
+                  "How much RUB are you ready to spend?": {
+                    "0..7890": {
+                      "I have {0} items for you, please follow me": 2
+                    },
+                    "7900..14490": {
+                      "I have {0} items for you, please follow me": 2
+                    },
+                    "14500..21490": {
+                      "I have {0} items for you, please follow me": 1
+                    }
+                  }
+                }
+              }
+            },
+            "Intermediate": {
+              "I have {0} items for you, please follow me": 1
+            }
+          }
+        },
+        "Man": {
+          "How are you prepared?": {
+            "Beginner": {
+              "How much RUB are you ready to spend?": {
+                "0..10490": {
+                  "I have {0} items for you, please follow me": 1
+                },
+                "10500..17490": {
+                  "What do you want to do?": {
+                    "Everything": {
+                      "I have {0} items for you, please follow me": 1
+                    },
+                    "Prepared slopes": {
+                      "I have {0} items for you, please follow me": 2
+                    }
+                  }
+                }
+              }
+            },
+            "Pro": {
+              "Do you need bindings?": {
+                "Yes": {
+                  "What do you want to do?": {
+                    "Sport": {
+                      "Which length of arcs will fit for you?": {
+                        "Medium": {
+                          "I have {0} items for you, please follow me": 1
+                        },
+                        "Long": {
+                          "I have {0} items for you, please follow me": 1
+                        },
+                        "Short": {
+                          "How much RUB are you ready to spend?": {
+                            "0..19990": {
+                              "I have {0} items for you, please follow me": 1
+                            },
+                            "20000..39490": {
+                              "I have {0} items for you, please follow me": 2
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "Prepared slopes": {
+                      "I have {0} items for you, please follow me": 1
+                    },
+                    "Freeride": {
+                      "I have {0} items for you, please follow me": 1
+                    },
+                    "Freestyle": {
+                      "I have {0} items for you, please follow me": 1
+                    }
+                  }
+                },
+                "No": {
+                  "I have {0} items for you, please follow me": 1
+                }
+              }
+            },
+            "Intermediate": {
+              "What do you want to do?": {
+                "Sport": {
+                  "I have {0} items for you, please follow me": 1
+                },
+                "Freeride": {
+	                "I have {0} items for you, please follow me": 1
+                },
+                "Freestyle": {
+                    "I have {0} items for you, please follow me": 2
+                },
+                "Everything": {
+                  "What kind of inflexibility do you prefer?": {
+                    "Middle": {
+                      "I have {0} items for you, please follow me": 4
+                    },
+                    "High": {
+                      "Do you want to have invulnerable ski?": {
+                        "Invulnerable": {
+                          "I have {0} items for you, please follow me": 3
+                        },
+                        "Not Invulnerable": {
+                          "I have {0} items for you, please follow me": 3
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
