@@ -1,23 +1,40 @@
 import api.quadcopter as api
 from random import randint
+import simulator.settings as settings
 
+
+def sign(x):
+    if x > 0:
+        return 1
+    if x < 0:
+        return -1
+    return 0
 
 class QuadcopterController(api.QuadcopterController):
-    POWER_TO_VELOCITY = 0.01
+    POWER_TO_VELOCITY = 0.0005
+    MAX_SPEED = 2
+
+    @staticmethod
+    def validate_velocity(velocity):
+        if abs(velocity) > QuadcopterController.MAX_SPEED:
+            velocity = QuadcopterController.MAX_SPEED * sign(velocity)
+        return velocity
 
     def __init__(self, quadcopter):
         self.quadcopter = quadcopter
-        self.x_velocity = 0
-        self.y_velocity = 0
+        self.x_velocity = 0.0
+        self.y_velocity = 0.0
         self.is_landed = True
 
     def set_y_velocity(self, power):
-        assert power >= -100 and power <= 100
-        self.y_velocity += power * QuadcopterController.POWER_TO_VELOCITY
+        assert power >= -100 and power <= 100 and not self.is_landed
+        self.y_velocity = QuadcopterController.validate_velocity(self.y_velocity +
+            power * QuadcopterController.POWER_TO_VELOCITY)
 
     def set_x_velocity(self, power):
-        assert power >= -100 and power <= 100
-        self.x_velocity += power * QuadcopterController.POWER_TO_VELOCITY
+        assert power >= -100 and power <= 100 and not self.is_landed
+        self.x_velocity = QuadcopterController.validate_velocity(self.x_velocity +
+            power * QuadcopterController.POWER_TO_VELOCITY)
 
     def land(self):
         self.is_landed = True
@@ -28,7 +45,7 @@ class QuadcopterController(api.QuadcopterController):
 
 class Quadcopter:
     id_counter = 0
-    CHARGE_DECREASE_PER_TICK = 0.01
+    CHARGE_DECREASE_PER_TICK = 0.001
 
     def __init__(self, x, y):
         self.x = x
@@ -58,10 +75,17 @@ class Quadcopter:
 
 class Human(api.Human):
     id_counter = 0
+    SPEED = 1.5
+    RADIUS = 20
+
     def __init__(self, x, y):
         self.x = x
         self.y = y
         self.id = Human.id_counter
+        self.copter = None
+        self.target = None
+        self.move = None
+        self.ticks_since_last_action = 0
         Human.id_counter += 1
 
     def get_id(self):
@@ -73,6 +97,36 @@ class Human(api.Human):
     def get_y(self):
         return self.y
 
+    def is_possible_move(self, move):
+        if move is None:
+            return False
+        new_coords = (self.x + Human.SPEED * move[0], self.y + Human.SPEED * move[1])
+        is_good_coord = min(new_coords[0], new_coords[1], settings.WIDTH - new_coords[0],
+                            settings.HEIGHT - new_coords[1]) > \
+                        Human.RADIUS
+        if is_good_coord:
+            # for wall in settings.walls:
+            # TODO: check intersection with walls
+            pass
+        return is_good_coord
+
+    def perform_action(self):
+        if randint(0, 30) == 0 or not self.is_possible_move(self.move): # Chage move direction
+            possible_moves = []
+            for x in range(-1, 2):
+                for y in range(-1, 2):
+                    possible_moves.append((x, y))
+            i = 0
+            while i < len(possible_moves):
+                move = possible_moves[i]
+                if not self.is_possible_move(move):
+                    possible_moves[i] = possible_moves[-1]
+                    possible_moves.pop()
+                else:
+                    i += 1
+            assert len(possible_moves) > 0
+            self.move = possible_moves[randint(0, len(possible_moves) - 1)]
+        self.x, self.y = self.x + Human.SPEED * self.move[0], self.y + Human.SPEED * self.move[1]
 
 class ChargingStation(api.ChargingStation):
     def __init__(self, x, y):
@@ -97,6 +151,7 @@ class Wall:
 
     def get_point2(self):
         return self.p2
+
 
 class Room(api.Room):
     def __init__(self, settings):

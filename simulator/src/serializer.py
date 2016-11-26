@@ -1,12 +1,12 @@
 import simulator.settings as settings
 import numpy as np
 import cv2
-
+from models import *
 
 class Serializer:
     @staticmethod
     def cv_point(x, y):
-        return (x, settings.HEIGHT - y)
+        return int(x), int(settings.HEIGHT - y)
 
     @staticmethod
     def serialize(room, frame):
@@ -20,7 +20,8 @@ class Serializer:
             cv2.line(frame, Serializer.cv_point(*wall.get_point1()),
                      Serializer.cv_point(*wall.get_point2()), (255, 255, 255))
         for human in room.get_people():
-            cv2.circle(frame, Serializer.cv_point(human.get_x(), human.get_y()), 20, (255, 165, 0))
+            cv2.circle(frame, Serializer.cv_point(human.get_x(), human.get_y()), Human.RADIUS, (165, 0, 255))
         for copter in room.get_quadcopters():
-            charge = copter.get_charge_level()
-            cv2.circle(frame, Serializer.cv_point(copter.get_x(), copter.get_y()), 10, (255 * (1-charge), 255*charge, 0))
+            charge = max(0, copter.get_charge_level())
+            cv2.circle(frame, Serializer.cv_point(copter.get_x(), copter.get_y()), 10,
+                       (0, 255*charge, 255 * (1.-charge)))
