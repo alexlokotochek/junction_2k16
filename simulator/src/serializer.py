@@ -12,11 +12,13 @@ COPTER_COLOR = (8, 12, 59)
 WALL_COLOR = (8, 12, 59)
 
 COPTER_RADIUS = 10
+ZOOM = 2
 
 class Serializer:
+   
     @staticmethod
     def cv_point(x, y):
-        return [int(x * 2), int((settings.HEIGHT - y) * 2)]
+        return [int(x * ZOOM), int((settings.HEIGHT - y) * ZOOM)]
     
     @staticmethod
     def draw_line(screen, p0, p1, color):
@@ -24,8 +26,8 @@ class Serializer:
 
     @staticmethod
     def draw_circle(screen, center, r, color):
-        pygame.gfxdraw.filled_circle(screen, center[0], center[1], r, color)
-        pygame.gfxdraw.aacircle(screen, center[0], center[1], r, color)
+        pygame.gfxdraw.filled_circle(screen, center[0], center[1], r * ZOOM, color)
+        pygame.gfxdraw.aacircle(screen, center[0], center[1], r * ZOOM, color)
 
     @staticmethod
     def serialize(room, screen):
@@ -47,7 +49,7 @@ class Serializer:
 
         for human in room.get_people():
             center = Serializer.cv_point(human.get_x(), human.get_y())
-            Serializer.draw_circle(screen, center, Human.RADIUS * 2, HUMAN_COLOR)
+            Serializer.draw_circle(screen, center, Human.RADIUS, HUMAN_COLOR)
             if human.target is not None:
                 center = Serializer.cv_point(*human.target)
                 Serializer.draw_circle(screen, center, Human.RADIUS / 2, TARGET_COLOR)
@@ -61,10 +63,10 @@ class Serializer:
             p2 = [center[0] + COPTER_RADIUS / 2, center[1] - COPTER_RADIUS / 2]
             p3 = [center[0] + COPTER_RADIUS / 2, center[1] + COPTER_RADIUS / 2]
 
-            Serializer.draw_circle(screen, p0, COPTER_RADIUS / 2, COPTER_COLOR)
-            Serializer.draw_circle(screen, p1, COPTER_RADIUS / 2, COPTER_COLOR)
-            Serializer.draw_circle(screen, p2, COPTER_RADIUS / 2, COPTER_COLOR)
-            Serializer.draw_circle(screen, p3, COPTER_RADIUS / 2, COPTER_COLOR)
+            Serializer.draw_circle(screen, p0, COPTER_RADIUS / 4, COPTER_COLOR)
+            Serializer.draw_circle(screen, p1, COPTER_RADIUS / 4, COPTER_COLOR)
+            Serializer.draw_circle(screen, p2, COPTER_RADIUS / 4, COPTER_COLOR)
+            Serializer.draw_circle(screen, p3, COPTER_RADIUS / 4, COPTER_COLOR)
         pygame.display.flip()
         
         """
