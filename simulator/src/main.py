@@ -1,4 +1,4 @@
-import settings
+import simulator.settings as settings
 import cv2
 import numpy as np
 

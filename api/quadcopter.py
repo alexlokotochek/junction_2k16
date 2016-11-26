@@ -5,13 +5,10 @@ class QuadcopterController:
     def set_x_velocity(self, power):
         assert power >= -100 and power <= 100
 
-    def set_z_velocity(self, power):
-        assert power >= -100 and power <= 100
-
     def land(self):
         pass
 
-    def set_up(self):
+    def take_off(self):
         pass
 
 
@@ -28,10 +25,6 @@ class Quadcopter:
     def get_y(self):
         pass
 
-    # [0..2pi), counterclockwise
-    def get_rotation(self):
-        pass
-
 
 class Human:
     def get_id(self):
@@ -43,12 +36,9 @@ class Human:
     def get_y(self):
         pass
 
-    def get_height(self):
-        pass
-
 
 class Wall:
-    # [x, y]
+    # (x, y)
     def get_point1(self):
         pass
 
@@ -65,6 +55,9 @@ class ChargingStation:
 
 
 class Room:
+    def get_walls(self):
+        pass
+
     def get_charging_stations(self):
         pass
 
@@ -73,5 +66,3 @@ class Room:
 
     def get_quadcopters(self):
         pass
-
-    
