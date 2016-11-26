@@ -32,13 +32,8 @@ def cosine_similarity(v1, v2):
 		return 0.
 	
 def cosine_similarity_overlap(v1, v2):
-	# sets
-	# print 'v1:', v1
-	# print 'v2:', v2
 	intersect = len(v1 & v2)
 	for w1, w2 in iter_product(list(v1), list(v2)):
-		# if w1 in [u'v\xe4rvitu', u'h\xf6rmann'] or w2 in [u'v\xe4rvitu', u'h\xf6rmann']:
-		# 	continue
 		if (w1 in w2 or w2 in w1) and w1 != w2:
 			intersect += 0.5
 	if intersect > 0:
@@ -55,10 +50,8 @@ class SearchSuggester:
 		self.suggested_category = None
 		query = query.strip().lower()
 		query_vec = set(stemmer.stemWords(query.split()))
-		# print query_vec
 		distances = [(productid, cosine_similarity_overlap(query_vec, product_vec)) for productid, product_vec in productid_to_vector.items()]
 		top = sorted(distances, key=lambda tup:tup[1], reverse=True)[:20]
-		# print top
 		if top[0][1] >= 0.7 and top[1][1]<top[0][1]*0.5 or productid_to_name[top[0][0]].lower()==query:
 			productid, dist = top[0]
 			self.suggested_product = (productid, productid_to_name[productid])
