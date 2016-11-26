@@ -15,7 +15,7 @@ class RoyalManager:
                 quadcopter.charge_level = 1.0
             quadcopter.x += quadcopter.get_controller().x_velocity
             quadcopter.y += quadcopter.get_controller().y_velocity
-        if self.current_tick % 500 == 0:
+        if self.current_tick % 100 == 0:
             self.room.create_human()
         for human in self.room.get_people():
             human.perform_action()

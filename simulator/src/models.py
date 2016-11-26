@@ -1,6 +1,12 @@
 import api.quadcopter as api
 from random import randint
 import simulator.settings as settings
+import math
+
+
+def distance(p1, p2):
+    d = (p2[0] - p1[0], p2[1] - p1[1])
+    return math.sqrt(d[0] * d[0] + d[1] * d[1])
 
 
 def sign(x):
@@ -9,6 +15,7 @@ def sign(x):
     if x < 0:
         return -1
     return 0
+
 
 class QuadcopterController(api.QuadcopterController):
     POWER_TO_VELOCITY = 0.0005
@@ -38,6 +45,8 @@ class QuadcopterController(api.QuadcopterController):
 
     def land(self):
         self.is_landed = True
+        self.x_velocity = 0
+        self.y_velocity = 0
 
     def take_off(self):
         self.is_landed = False
@@ -91,13 +100,19 @@ class Quadcopter:
         one_move = Quadcopter.get_power_one_move(velocity, place)
         if one_move is not None:
             return one_move
-        if sign(velocity) != sign(place):
+        if sign(velocity) * sign(place) == -1:
             return sign(place) * 100
+        multiplier = 1
+        if velocity < 0:
+            velocity *= -1
+            place *= -1
+            multiplier = -1
+
         if velocity + Quadcopter.braking_distance(velocity) > place:
-            return -100
+            return -100 * multiplier
         if velocity + 100 * QuadcopterController.POWER_TO_VELOCITY + \
                 Quadcopter.braking_distance(velocity + 100 * QuadcopterController.POWER_TO_VELOCITY) <= place:
-            return 100
+            return 100 * multiplier
         return 0
 
     def move_to_point(self, x, y):
@@ -144,22 +159,42 @@ class Human(api.Human):
         return is_good_coord
 
     def perform_action(self):
-        if randint(0, 30) == 0 or not self.is_possible_move(self.move): # Chage move direction
-            possible_moves = []
-            for x in range(-1, 2):
-                for y in range(-1, 2):
-                    possible_moves.append((x, y))
-            i = 0
-            while i < len(possible_moves):
-                move = possible_moves[i]
-                if not self.is_possible_move(move):
-                    possible_moves[i] = possible_moves[-1]
-                    possible_moves.pop()
+        if self.target is None:
+            if randint(0, 30) == 0 or not self.is_possible_move(self.move): # Change move direction
+                possible_moves = []
+                for x in range(-1, 2):
+                    for y in range(-1, 2):
+                        possible_moves.append((x, y))
+                i = 0
+                while i < len(possible_moves):
+                    move = possible_moves[i]
+                    if not self.is_possible_move(move):
+                        possible_moves[i] = possible_moves[-1]
+                        possible_moves.pop()
+                    else:
+                        i += 1
+                assert len(possible_moves) > 0
+                self.move = possible_moves[randint(0, len(possible_moves) - 1)]
+            self.x, self.y = self.x + Human.SPEED * self.move[0], self.y + Human.SPEED * self.move[1]
+        else:
+            if distance((self.x, self.y), self.target) < Human.RADIUS and self.copter is not None:
+                self.copter.human_to_move = None
+                self.copter = None
+            if self.copter is not None:
+                if abs(self.copter.get_x() - self.x) < Human.SPEED:
+                    self.x = self.copter.get_x()
                 else:
-                    i += 1
-            assert len(possible_moves) > 0
-            self.move = possible_moves[randint(0, len(possible_moves) - 1)]
-        self.x, self.y = self.x + Human.SPEED * self.move[0], self.y + Human.SPEED * self.move[1]
+                    self.x += sign(self.copter.get_x() - self.x) * Human.SPEED
+
+                if abs(self.copter.get_y() - self.y) < Human.SPEED:
+                    self.y = self.copter.get_y()
+                else:
+                    self.y += sign(self.copter.get_y() - self.y) * Human.SPEED
+
+    def assign_to_copter(self, copter):
+        self.copter = copter
+        self.target = (randint(2 * Human.RADIUS, settings.WIDTH - 2 * Human.RADIUS),
+                       randint(2 * Human.RADIUS, settings.HEIGHT - 2 * Human.RADIUS))
 
 
 class ChargingStation(api.ChargingStation):
