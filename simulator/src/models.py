@@ -52,6 +52,7 @@ class Quadcopter:
         self.y = y
         self.controller = QuadcopterController(self)
         self.charge_level = 1.0
+        self.human_to_move = None
         self.id = Quadcopter.id_counter
         Quadcopter.id_counter += 1
 
@@ -72,6 +73,38 @@ class Quadcopter:
 
     def decrease_charge(self):
         self.charge_level -= Quadcopter.CHARGE_DECREASE_PER_TICK
+
+    @staticmethod
+    def get_power_one_move(velocity, place):
+        power = (place - velocity) / QuadcopterController.POWER_TO_VELOCITY
+        if -100 <= power <= 100:
+            return power
+        return None
+
+    @staticmethod
+    def braking_distance(velocity):
+        n = int(velocity / (100 * QuadcopterController.POWER_TO_VELOCITY))
+        return 50 * QuadcopterController.POWER_TO_VELOCITY * n * (n + 1)
+
+    @staticmethod
+    def get_power(velocity, place):
+        one_move = Quadcopter.get_power_one_move(velocity, place)
+        if one_move is not None:
+            return one_move
+        if sign(velocity) != sign(place):
+            return sign(place) * 100
+        if velocity + Quadcopter.braking_distance(velocity) > place:
+            return -100
+        if velocity + 100 * QuadcopterController.POWER_TO_VELOCITY + \
+                Quadcopter.braking_distance(velocity + 100 * QuadcopterController.POWER_TO_VELOCITY) <= place:
+            return 100
+        return 0
+
+    def move_to_point(self, x, y):
+        x_power = Quadcopter.get_power(self.get_controller().x_velocity, x - self.x)
+        y_power = Quadcopter.get_power(self.get_controller().y_velocity, y - self.y)
+        self.get_controller().set_x_velocity(x_power)
+        self.get_controller().set_y_velocity(y_power)
 
 class Human(api.Human):
     id_counter = 0
@@ -128,6 +161,7 @@ class Human(api.Human):
             self.move = possible_moves[randint(0, len(possible_moves) - 1)]
         self.x, self.y = self.x + Human.SPEED * self.move[0], self.y + Human.SPEED * self.move[1]
 
+
 class ChargingStation(api.ChargingStation):
     def __init__(self, x, y):
         self.x = x
@@ -179,6 +213,11 @@ class Room(api.Room):
 
     def get_quadcopters(self):
         return self.quadcopters
+
+    def get_human(self, id):
+        for human in self.people:
+            if human.get_id() == id:
+                return human
 
     def create_human(self):
         self.people.append(Human(self.enter_point[0], self.enter_point[1]))
