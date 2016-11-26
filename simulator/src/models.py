@@ -121,12 +121,14 @@ class Quadcopter:
         self.get_controller().set_x_velocity(x_power)
         self.get_controller().set_y_velocity(y_power)
 
+
 class Human(api.Human):
     id_counter = 0
     SPEED = 1.5
     RADIUS = 20
 
-    def __init__(self, x, y):
+    def __init__(self, room, x, y):
+        self.room = room
         self.x = x
         self.y = y
         self.id = Human.id_counter
@@ -177,9 +179,13 @@ class Human(api.Human):
                 self.move = possible_moves[randint(0, len(possible_moves) - 1)]
             self.x, self.y = self.x + Human.SPEED * self.move[0], self.y + Human.SPEED * self.move[1]
         else:
-            if distance((self.x, self.y), self.target) < Human.RADIUS and self.copter is not None:
-                self.copter.human_to_move = None
-                self.copter = None
+            if distance((self.x, self.y), self.target) < Human.RADIUS:
+                if self.copter is not None:
+                    self.copter.human_to_move = None
+                    self.copter = None
+                self.ticks_since_last_action += 1
+                if self.ticks_since_last_action > 15:
+                    self.room.remove_human(self.id)
             if self.copter is not None:
                 if abs(self.copter.get_x() - self.x) < Human.SPEED:
                     self.x = self.copter.get_x()
@@ -254,5 +260,12 @@ class Room(api.Room):
             if human.get_id() == id:
                 return human
 
+    def remove_human(self, id):
+        for i, human in enumerate(self.people):
+            if human.get_id() == id:
+                self.people[i] = self.people[-1]
+                self.people.pop()
+                break
+
     def create_human(self):
-        self.people.append(Human(self.enter_point[0], self.enter_point[1]))
+        self.people.append(Human(self, self.enter_point[0], self.enter_point[1]))
