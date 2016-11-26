@@ -51,24 +51,23 @@ class SearchSuggester:
     	# tuple (productid, name)
     	self.suggested_product = None
     	query = query.strip().lower()
-		query_vec = set(stemmer.stemWords(query.lower().strip().split()))
-		distances = [(productid, cosine_similarity_overlap(query_vec, product_vec)) 
-		             for productid, product_vec in productid_to_vector.items()]
-		top = sorted(distances, key=lambda tup:tup[1], reverse=True)[:20]
-		if top[0][1] >= 0.7 and top[1][1]<top[0][1]*0.5 or productid_to_name[top[0][0]].lower()==query:
-		    productid, dist = top[0]
-		    self.suggested_product = (productid, productid_to_name[productid])
-		self.suggested_category = None
-		if top[0][1] != 0.:
-		    category_score, pos = {}, 1
-		    for productid, dist in top:
-		        pos += 1
-		        cat = productid_to_cat[productid]
-		        if cat not in category_score:
-		            category_score[cat] = 0
-		        # NDCG-like
-		        category_score[cat] += 1./np.log(pos+1)
-		   	top_cat = sorted(category_score.items(), key=lambda tup:tup[1], reverse=True)[0]
-		   	if top_cat[1] > 0:
-		   		self.suggested_category = top_cat[0]
+	query_vec = set(stemmer.stemWords(query.lower().strip().split()))
+	distances = [(productid, cosine_similarity_overlap(query_vec, product_vec)) for productid, product_vec in productid_to_vector.items()]
+	top = sorted(distances, key=lambda tup:tup[1], reverse=True)[:20]
+	if top[0][1] >= 0.7 and top[1][1]<top[0][1]*0.5 or productid_to_name[top[0][0]].lower()==query:
+	    productid, dist = top[0]
+	    self.suggested_product = (productid, productid_to_name[productid])
+	    self.suggested_category = None
+	    if top[0][1] != 0.:
+		category_score, pos = {}, 1
+		for productid, dist in top:
+		    pos += 1
+		    cat = productid_to_cat[productid]
+		    if cat not in category_score:
+		        category_score[cat] = 0
+		    # NDCG-like
+		    category_score[cat] += 1./np.log(pos+1)
+		top_cat = sorted(category_score.items(), key=lambda tup:tup[1], reverse=True)[0]
+		if top_cat[1] > 0:
+		    self.suggested_category = top_cat[0]
         
