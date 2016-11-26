@@ -1,4 +1,4 @@
-import settings
+import simulator.settings as settings
 import numpy as np
 import models
 from royal_manager import RoyalManager
@@ -10,15 +10,15 @@ def main():
     pygame.init()
  
     # Set the width and height of the screen [width, height]
-    size = (700, 500)
+    size = (settings.WIDTH * 2, settings.HEIGHT * 2)
     screen = pygame.display.set_mode(size)
- 
     pygame.display.set_caption("Simulator")
 
     royal_manager = RoyalManager()
     room = royal_manager.room
     strategy = Strategy(room)
     done = False
+    clock = pygame.time.Clock()
     while not done:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
