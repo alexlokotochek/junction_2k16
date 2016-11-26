@@ -1,5 +1,6 @@
 import api.quadcopter as api
 from random import randint
+from random import random
 import simulator.settings as settings
 import math
 
@@ -9,6 +10,14 @@ def distance(p1, p2):
     return math.sqrt(d[0] * d[0] + d[1] * d[1])
 
 
+def pseudo_scalar_production(p1, p2):
+    return p1[1] * p2[0] - p1[0] * p2[1]
+
+
+def scalar_production(p1, p2):
+    return p1[0] * p2[0] + p1[1] * p2[1]
+
+
 def sign(x):
     if x > 0:
         return 1
@@ -16,6 +25,29 @@ def sign(x):
         return -1
     return 0
 
+
+def is_good_human_coord(new_coords):
+    is_good_coord = min(new_coords[0], new_coords[1], settings.WIDTH - new_coords[0],
+                        settings.HEIGHT - new_coords[1]) > Human.RADIUS
+    if is_good_coord:
+        for wall in settings.walls:
+            v1 = (wall[0][0] - new_coords[0], wall[0][1] - new_coords[1])
+            v2 = (wall[1][0] - new_coords[0], wall[1][1] - new_coords[1])
+            ln = distance(*wall)
+            h = abs(pseudo_scalar_production(v1, v2)) / ln
+            if h < Human.RADIUS:
+                base = (wall[1][0] - wall[0][0], wall[1][1] - wall[0][1])
+                base = (base[0] / ln, base[1] / ln)
+                a = scalar_production(v1, base)
+                b = scalar_production(v2, base)
+                if sign(a) * sign(b) <= 0 or min(distance(new_coords, wall[0]),
+                                                 distance(new_coords, wall[1])) < Human.RADIUS:
+                    is_good_coord = False
+                    break
+    return is_good_coord
+
+SIN = math.sin(0.2)
+COS = math.cos(0.2)
 
 class QuadcopterController(api.QuadcopterController):
     POWER_TO_VELOCITY = 0.0005
@@ -51,6 +83,8 @@ class QuadcopterController(api.QuadcopterController):
     def take_off(self):
         self.is_landed = False
 
+    def turn(self):
+        self.x_velocity, self.y_velocity = self.x_velocity * COS - self.y_velocity * SIN, self.x_velocity * SIN + self.y_velocity * COS
 
 class Quadcopter:
     id_counter = 0
@@ -115,11 +149,20 @@ class Quadcopter:
             return 100 * multiplier
         return 0
 
+    def intersects_wall_in_a_tick(self):
+        return not is_good_human_coord((self.x + self.controller.x_velocity, self.y + self.controller.y_velocity))
+
     def move_to_point(self, x, y):
         x_power = Quadcopter.get_power(self.get_controller().x_velocity, x - self.x)
         y_power = Quadcopter.get_power(self.get_controller().y_velocity, y - self.y)
         self.get_controller().set_x_velocity(x_power)
         self.get_controller().set_y_velocity(y_power)
+        if self.human_to_move is not None and self.human_to_move.copter is not None and self.intersects_wall_in_a_tick():
+            ln = distance((0, 0), (self.controller.x_velocity, self.controller.y_velocity))
+            self.controller.x_velocity /= ln / QuadcopterController.MAX_SPEED
+            self.controller.y_velocity /= ln / QuadcopterController.MAX_SPEED
+            while self.intersects_wall_in_a_tick():
+                self.get_controller().turn()
 
 
 class Human(api.Human):
@@ -151,18 +194,11 @@ class Human(api.Human):
         if move is None:
             return False
         new_coords = (self.x + Human.SPEED * move[0], self.y + Human.SPEED * move[1])
-        is_good_coord = min(new_coords[0], new_coords[1], settings.WIDTH - new_coords[0],
-                            settings.HEIGHT - new_coords[1]) > \
-                        Human.RADIUS
-        if is_good_coord:
-            # for wall in settings.walls:
-            # TODO: check intersection with walls
-            pass
-        return is_good_coord
+        return is_good_human_coord(new_coords)
 
     def perform_action(self):
         if self.target is None:
-            if randint(0, 30) == 0 or not self.is_possible_move(self.move): # Change move direction
+            if randint(0, 30) == 0 or not self.is_possible_move(self.move):  # Change move direction
                 possible_moves = []
                 for x in range(-1, 2):
                     for y in range(-1, 2):
@@ -179,7 +215,7 @@ class Human(api.Human):
                 self.move = possible_moves[randint(0, len(possible_moves) - 1)]
             self.x, self.y = self.x + Human.SPEED * self.move[0], self.y + Human.SPEED * self.move[1]
         else:
-            if distance((self.x, self.y), self.target) < Human.RADIUS:
+            if distance((self.x, self.y), self.target) < Human.RADIUS + 10:
                 if self.copter is not None:
                     self.copter.human_to_move = None
                     self.copter = None
@@ -199,8 +235,15 @@ class Human(api.Human):
 
     def assign_to_copter(self, copter):
         self.copter = copter
-        self.target = (randint(2 * Human.RADIUS, settings.WIDTH - 2 * Human.RADIUS),
-                       randint(2 * Human.RADIUS, settings.HEIGHT - 2 * Human.RADIUS))
+        wall = settings.walls[randint(0, len(settings.walls) - 1)]
+        p = random()
+        assert 0 <= p <= 1
+        n = (wall[1][0] - wall[0][0], wall[1][1] - wall[0][1])
+        n = (-sign(n[1]), sign(n[0]))
+        if randint(0, 1) == 0:
+            n = (-n[0], -n[1])
+        self.target = (wall[0][0] * p + wall[1][0] * (1 - p) + n[0] * Human.RADIUS,
+                       wall[0][1] * p + wall[1][1] * (1 - p) + n[1] * Human.RADIUS)
 
 
 class ChargingStation(api.ChargingStation):
