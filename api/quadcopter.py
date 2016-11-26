@@ -25,6 +25,8 @@ class Quadcopter:
     def get_y(self):
         pass
 
+    def get_charge_level(self):
+        pass
 
 class Human:
     def get_id(self):

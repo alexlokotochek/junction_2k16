@@ -28,10 +28,13 @@ class QuadcopterController(api.QuadcopterController):
 
 class Quadcopter:
     id_counter = 0
+    CHARGE_DECREASE_PER_TICK = 0.01
+
     def __init__(self, x, y):
         self.x = x
         self.y = y
         self.controller = QuadcopterController(self)
+        self.charge_level = 1.0
         self.id = Quadcopter.id_counter
         Quadcopter.id_counter += 1
 
@@ -47,6 +50,11 @@ class Quadcopter:
     def get_y(self):
         return self.y
 
+    def get_charge_level(self):
+        return self.charge_level
+
+    def decrease_charge(self):
+        self.charge_level -= Quadcopter.CHARGE_DECREASE_PER_TICK
 
 class Human(api.Human):
     id_counter = 0
@@ -93,7 +101,7 @@ class Wall:
 class Room(api.Room):
     def __init__(self, settings):
         self.walls = []
-        for wall in settings.wals:
+        for wall in settings.walls:
             self.walls.append(Wall(wall[0], wall[1]))
         self.charging_stations = []
         for charging_station in settings.charging_stations:
@@ -101,8 +109,8 @@ class Room(api.Room):
         self.enter_point = settings.enter_point
         self.people = []
         self.quadcopters = []
-        for _ in range(settings.copters_count):
-            station = self.charging_stations[randint(0, len(self.charging_stations))]
+        for _ in range(settings.copter_count):
+            station = self.charging_stations[randint(0, len(self.charging_stations) - 1)]
             self.quadcopters.append(Quadcopter(station.get_x(), station.get_y()))
 
     def get_walls(self):
@@ -117,3 +125,5 @@ class Room(api.Room):
     def get_quadcopters(self):
         return self.quadcopters
 
+    def create_human(self):
+        self.people.append(Human(self.enter_point[0], self.enter_point[1]))
