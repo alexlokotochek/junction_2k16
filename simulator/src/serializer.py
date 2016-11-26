@@ -1,6 +1,6 @@
 import simulator.settings as settings
 import numpy as np
-import cv2
+import pygame
 from models import *
 
 class Serializer:
@@ -9,8 +9,9 @@ class Serializer:
         return int(x), int(settings.HEIGHT - y)
 
     @staticmethod
-    def serialize(room, frame):
-        frame.fill(0)
+    def serialize(room, screen):
+        screen.fill((255, 255, 255))
+        """
         for station in room.get_charging_stations():
             cv2.line(frame, Serializer.cv_point(station.get_x() - 15, station.get_y()),
                      Serializer.cv_point(station.get_x() + 15, station.get_y()), (102, 0, 255))
@@ -27,3 +28,4 @@ class Serializer:
             charge = max(0, copter.get_charge_level())
             cv2.circle(frame, Serializer.cv_point(copter.get_x(), copter.get_y()), 10,
                        (0, 255*charge, 255*(1.-charge)))
+        """
