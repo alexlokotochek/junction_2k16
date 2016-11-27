@@ -7,6 +7,9 @@ import threading
 skeleton = vpykinect.Skeleton(frame(visible=False))
 skeleton.frame.visible = False
 
+SERVER_IP = "85.188.11.77"
+SERVER_PORT = 12358
+
 log = "{\n"
 points = []
 
@@ -29,7 +32,7 @@ class HttpProcessor(BaseHTTPRequestHandler):
         else:
             self.wfile.write("Use /all_data to get all collected information\nUse /all_points to get all path points recorded for one customer (we currently track just one skeleton for testing purposes)\nUse /last_point to get last path point")
 
-serv = HTTPServer(("85.188.11.77",12358),HttpProcessor)
+serv = HTTPServer((SERVER_IP,SERVER_PORT),HttpProcessor)
 server = threading.Thread(target=serv.serve_forever)
 server.start()
 
