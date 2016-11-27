@@ -3,6 +3,8 @@ from random import randint
 from random import random
 import simulator.settings as settings
 import math
+from six.moves import urllib
+import threading
 
 
 def distance(p1, p2):
@@ -253,10 +255,33 @@ class Human(api.Human):
 
 class KinectMan(Human):
     def __init__(self, room, x, y):
-        super(KinectMan, self).__init__(room, x, y)
+        Human.__init__(self, room, x, y)
+        self.t = threading.Thread(target=self.coords_updater)
+        self.t.daemon = False
+        self.t.start()
+        self._x = 0
+        self._y = 0
+
+        # self.min_x = 133423
+        # self.max_x = -13345623
+        # self.min_y = 342134234
+        # self.max_y = -342134234
+
+
+    def coords_updater(self):
+        while True:
+            f = urllib.request.urlopen('http://85.188.11.77:12358/last_point')
+            s = f.read()
+            self._x, _, self._y = map(lambda str : float(str), s.split(','))
+            # self.min_x = min(self._x, self.min_x)
+            # self.max_x = max(self._x, self.max_x)
+            # self.min_y = min(self._y, self.min_y)
+            # self.max_y = max(self._y, self.max_y)
+            # print self.min_x, self.min_y, self.max_x, self.max_y
 
     def update_coords(self):
-        #
+        self.x = (1.16 + self._x) * 230
+        self.y = (self._y - 1.25) * 285
         pass
 
     def perform_action(self):
@@ -302,6 +327,8 @@ class Room(api.Room):
         for _ in range(settings.copter_count):
             station = self.charging_stations[randint(0, len(self.charging_stations) - 1)]
             self.quadcopters.append(Quadcopter(station.get_x(), station.get_y()))
+        self.kinect_man = KinectMan(self, self.enter_point[0], self.enter_point[1])
+        self.people.append(self.kinect_man)
 
     def get_walls(self):
         return self.walls

@@ -3,6 +3,7 @@ import numpy as np
 import models
 from royal_manager import RoyalManager
 from serializer import Serializer
+from serializer import ZOOM
 from strategy.strategy import Strategy
 import pygame
 
@@ -10,7 +11,7 @@ def main():
     pygame.init()
  
     # Set the width and height of the screen [width, height]
-    size = (settings.WIDTH * 2, settings.HEIGHT * 2)
+    size = (int(settings.WIDTH * ZOOM), int(settings.HEIGHT * ZOOM))
     screen = pygame.display.set_mode(size)
     pygame.display.set_caption("Simulator")
 
