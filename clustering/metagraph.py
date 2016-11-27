@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 from tqdm import tnrange as prange, tqdm_notebook as pbar
 
-#@Singleton
+# TODO: singleton
 class Metagraph:
     g = None
     vertices = set([])
