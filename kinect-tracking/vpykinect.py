@@ -43,7 +43,7 @@ class Skeleton:
                 for i in range(0, 99):
                     self.path[i].pos = self.path[i + 1].pos
                 
-                spine = self.joints[1]
+                spine = self.joints[3]
                 self.path[99].pos = (spine.x, spine.y, spine.z)
 
         return updated
