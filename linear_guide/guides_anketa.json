@@ -1,0 +1,920 @@
+{
+  "33005440": {
+    "Q_1": {
+      "text": "lm) PowerLed",
+      "A_1": "2 x 2,5 W (2 x 95",
+      "A_0": "3 x 2,5 W (3 x 95"
+    },
+    "Q_0": {
+      "text": "IP",
+      "A_1": "23",
+      "A_0": "20"
+    }
+  },
+  "42215040": {
+    "Q_0": {
+      "A_5": "25 cm.",
+      "A_4": "35 cm.",
+      "A_3": "10 cm.",
+      "A_2": "15 - 25 cm.",
+      "A_1": "30 - 40 cm.",
+      "A_0": "10 - 15 cm.",
+      "text": "Korkeus noin"
+    }
+  },
+  "42205120": {
+    "Q_3": {
+      "A_5": "4 m",
+      "A_4": "1-3 m",
+      "A_3": "3 - 4 m",
+      "A_2": "1 m",
+      "A_1": "2-2,5 m",
+      "A_0": "1,5 m",
+      "text": "kasvuleveys n."
+    },
+    "Q_2": {
+      "text": "istutusv\u00e4li n.",
+      "A_1": "1 m",
+      "A_0": "50 cm"
+    },
+    "Q_1": {
+      "A_5": "1-2 m",
+      "A_4": "3 m",
+      "A_3": "3-10 m",
+      "A_2": "10 - 15 m",
+      "A_1": "1,5 m",
+      "A_0": "25 cm",
+      "text": "kasvukorkeus n."
+    },
+    "Q_0": {
+      "text": "menestymisvy\u00f6hykkeet",
+      "A_1": "I-IV",
+      "A_0": "I-VI"
+    }
+  },
+  "35502600": {
+    "Q_0": {
+      "text": "mm laikka",
+      "A_1": "125",
+      "A_0": "230"
+    }
+  },
+  "49510040": {
+    "Q_2": {
+      "text": "ter\u00e4varustus",
+      "A_1": "12\" 3/8\" 1,1 mm -46",
+      "A_0": "14\" 3/8\" 1,3 mm -52"
+    },
+    "Q_1": {
+      "text": "paino",
+      "A_1": "4,3 kg",
+      "A_0": "5,1 kg"
+    },
+    "Q_0": {
+      "text": "ottoteho",
+      "A_1": "2000 W",
+      "A_0": "1800 W"
+    }
+  },
+  "21505040": {
+    "Q_0": {
+      "text": "kulutusluokka",
+      "A_1": "31",
+      "A_0": "32"
+    }
+  },
+  "36510040": {
+    "Q_1": {
+      "text": "Ilmantarve",
+      "A_1": "200L/min @ 4 bar",
+      "A_0": "420L/min@7bar"
+    },
+    "Q_0": {
+      "text": "Suutinkoko",
+      "A_1": "1,4 mm",
+      "A_0": "0,44 mm"
+    }
+  },
+  "36520320": {
+    "Q_3": {
+      "text": "sarja",
+      "A_1": "80",
+      "A_0": "90"
+    },
+    "Q_2": {
+      "text": "kpl pakkaus",
+      "A_2": "6500",
+      "A_1": "10800",
+      "A_0": "5000"
+    },
+    "Q_1": {
+      "A_5": "25 mm",
+      "A_4": "6 mm",
+      "A_3": "8' mm",
+      "A_2": "38 mm",
+      "A_1": "32 mm",
+      "A_0": "16 mm",
+      "text": "Pituus"
+    },
+    "Q_0": {
+      "text": "Selk\u00e4leveys",
+      "A_1": "12,8 mm",
+      "A_0": "6,4 mm"
+    }
+  },
+  "42215060": {
+    "Q_0": {
+      "A_4": "90 - 100 cm.",
+      "A_3": "110 - 120 cm.",
+      "A_2": "50 cm.",
+      "A_1": "60 cm.",
+      "A_0": "100 - 110 cm.",
+      "text": "Korkeus noin"
+    }
+  },
+  "35506200": {
+    "Q_4": {
+      "text": "Iskuluku",
+      "A_1": "0-4800 min-1",
+      "A_0": "0-4000 min-1"
+    },
+    "Q_3": {
+      "text": "Kapasiteetti betoni/ter\u00e4s/puu",
+      "A_1": "26/13/32 mm",
+      "A_0": "20/13/26 mm"
+    },
+    "Q_2": {
+      "text": "Paino",
+      "A_1": "4,8 kg (vakioakulla)",
+      "A_0": "3,5 kg (vakioakulla)"
+    },
+    "Q_1": {
+      "text": "iskuenergia",
+      "A_1": "1,8 J",
+      "A_0": "2,8 J"
+    },
+    "Q_0": {
+      "text": "Ah Li-ion akku",
+      "A_1": "2 x 2,6",
+      "A_0": "1,3"
+    }
+  },
+  "26205720": {
+    "Q_2": {
+      "text": "/h",
+      "A_3": "1 moottori 220 m3",
+      "A_2": "1 moottori 450 m3",
+      "A_1": "1 moottori 310 m3",
+      "A_0": "1 moottori 220 m\u00b3"
+    },
+    "Q_1": {
+      "text": "\u00c4\u00e4nenvoimakkuus",
+      "A_2": "59 dB (A)",
+      "A_1": "61 dB(A)",
+      "A_0": "65 dB (A)"
+    },
+    "Q_0": {
+      "text": "2",
+      "A_1": "hehkulamppua",
+      "A_0": "halogeenilamppua"
+    }
+  },
+  "35505540": {
+    "Q_0": {
+      "text": "teho",
+      "A_1": "1600 W",
+      "A_0": "1800 W"
+    }
+  },
+  "36060040": {
+    "Q_1": {
+      "text": "paino",
+      "A_1": "9 kg",
+      "A_0": "11 kg"
+    },
+    "Q_0": {
+      "text": "moottori",
+      "A_1": "240 W/230 V",
+      "A_0": "250 W/230 V"
+    }
+  },
+  "36520120": {
+    "Q_0": {
+      "text": "Pituus",
+      "A_1": "50 mm",
+      "A_0": "60 mm"
+    }
+  },
+  "36510240": {
+    "Q_0": {
+      "text": "Koko",
+      "A_2": "13 mm",
+      "A_1": "1/4\"",
+      "A_0": "3/8\""
+    }
+  },
+  "25405040": {
+    "Q_3": {
+      "text": "Peilikaappi",
+      "A_1": "600 x 130 x 700 mm",
+      "A_0": "850 x 700 x 180 mm"
+    },
+    "Q_2": {
+      "text": "mm",
+      "A_1": "300 x 300 x 900",
+      "A_0": "300 x 300 x 1700"
+    },
+    "Q_1": {
+      "A_5": "450 x 50 x 600 mm",
+      "A_4": "900 X 50 x 700 mm",
+      "A_3": "560 X 100 x 700 mm",
+      "A_2": "550 x 100 x 700 mm",
+      "A_1": "600 x 50 x 750 mm",
+      "A_0": "750 x 50 x 600 mm",
+      "text": "Peili"
+    },
+    "Q_0": {
+      "A_5": "750 x 380 x 520 mm",
+      "A_4": "850 x 510/340 x 740 mm",
+      "A_3": "900 x 470 x 520",
+      "A_2": "560 x 420/300 x 650 mm",
+      "A_1": "600 x 485 x700 mm",
+      "A_0": "550 x 320 x 630 mm",
+      "text": "Allaskaappi"
+    }
+  },
+  "27505080": {
+    "Q_0": {
+      "text": "Tilavuus",
+      "A_1": "80 l.",
+      "A_0": "22 l."
+    }
+  },
+  "36505040": {
+    "Q_0": {
+      "text": "S\u00e4ili\u00f6",
+      "A_1": "50 l",
+      "A_0": "24 l"
+    }
+  },
+  "35072040": {
+    "Q_1": {
+      "text": "mm levitystoiminnolla",
+      "A_1": "600",
+      "A_0": "300"
+    },
+    "Q_0": {
+      "A_4": "1250",
+      "A_3": "600",
+      "A_2": "900",
+      "A_1": "300",
+      "A_0": "450",
+      "text": "mm puristusv\u00e4lill\u00e4"
+    }
+  },
+  "42420060": {
+    "Q_0": {
+      "text": "V\u00e4ri",
+      "A_2": "musta",
+      "A_1": "valkoinen",
+      "A_0": "punainen"
+    }
+  },
+  "36005200": {
+    "Q_1": {
+      "text": "halkaisukapasiteetti",
+      "A_1": "50 mm",
+      "A_0": "40 mm"
+    },
+    "Q_0": {
+      "text": "ter\u00e4",
+      "A_1": "260 x 30 mm 24 H",
+      "A_0": "260 x 30 mm"
+    }
+  },
+  "41405360": {
+    "Q_2": {
+      "text": "Tuotteen mitat",
+      "A_1": "84 x 63 x 88 cm",
+      "A_0": "91 x 66 x 114 cm"
+    },
+    "Q_1": {
+      "text": "Materiaalit",
+      "A_1": "Ter\u00e4s, textilene",
+      "A_0": "Textilene, ter\u00e4s, muovi"
+    },
+    "Q_0": {
+      "text": "Paino",
+      "A_1": "8,6 kg",
+      "A_0": "4,3 kg"
+    }
+  },
+  "31505160": {
+    "Q_0": {
+      "A_5": "65% polyesteri\u00e4, 35% puuvillaa , 300gr/m15",
+      "A_4": "65% polyesteri\u00e4, 35% puuvillaa , 300gr/m16",
+      "A_3": "65% polyesteri\u00e4, 35% puuvillaa , 300gr/m10",
+      "A_2": "65% polyesteri\u00e4, 35% puuvillaa , 300gr/m11",
+      "A_1": "65% polyesteri\u00e4, 35% puuvillaa , 300gr/m12",
+      "A_0": "65% polyesteri\u00e4, 35% puuvillaa , 300gr/m13",
+      "text": "Materiaali"
+    }
+  },
+  "35506100": {
+    "Q_6": {
+      "text": "min. laturi",
+      "A_1": "50",
+      "A_0": "60"
+    },
+    "Q_5": {
+      "text": "mm pikaistukka",
+      "A_1": "13",
+      "A_0": "10"
+    },
+    "Q_4": {
+      "text": "Kierrosnopeus",
+      "A_2": "0-400/1250 min-1",
+      "A_1": "0-400/1700 min-1",
+      "A_0": "0-350/1300 min-1"
+    },
+    "Q_3": {
+      "text": "h laturi",
+      "A_1": "3",
+      "A_0": "1"
+    },
+    "Q_2": {
+      "text": "V\u00e4\u00e4nt\u00f6momentti pehme\u00e4/kova",
+      "A_2": "40/80 Nm",
+      "A_1": "13/30 Nm",
+      "A_0": "16/38 Nm"
+    },
+    "Q_1": {
+      "text": "Ah Li-ion akku",
+      "A_1": "2 x 1,3",
+      "A_0": "2x1,3"
+    },
+    "Q_0": {
+      "text": "v\u00e4\u00e4nt\u00f6",
+      "A_2": "20/36 Nm, 60 min laturi",
+      "A_1": "27/42 Nm, 30 min laturi",
+      "A_0": "11/22 Nm (pehme\u00e4/kova)"
+    }
+  },
+  "23015480": {
+    "Q_0": {
+      "text": "L\u00e4mm\u00f6nkesto +",
+      "A_3": "250 C",
+      "A_2": "400 C.",
+      "A_1": "400 C",
+      "A_0": "600 C"
+    }
+  },
+  "36010100": {
+    "Q_0": {
+      "text": "ter\u00e4",
+      "A_1": "254 x 30 mm",
+      "A_0": "260 x 30 mm"
+    }
+  },
+  "31505040": {
+    "Q_3": {
+      "text": "100%",
+      "A_1": "puuvilla",
+      "A_0": "polyesteri"
+    },
+    "Q_2": {
+      "text": "65%",
+      "A_1": "polyesteri\u00e4",
+      "A_0": "polyesteri"
+    },
+    "Q_1": {
+      "text": "hengitt\u00e4v\u00e4",
+      "A_1": "200g/m\u00b2",
+      "A_0": "305g/m\u00b2"
+    },
+    "Q_0": {
+      "text": "puuvilla",
+      "A_1": "220 g/m\u00b2",
+      "A_0": "260 g/m\u00b2"
+    }
+  },
+  "35503320": {
+    "Q_4": {
+      "text": "kierrosluku",
+      "A_1": "5000 min-1",
+      "A_0": "4 500 r/min"
+    },
+    "Q_3": {
+      "text": "kapasiteetti",
+      "A_2": "75,5 mm",
+      "A_1": "55 mm",
+      "A_0": "54 mm"
+    },
+    "Q_2": {
+      "text": "kovapalater\u00e4",
+      "A_3": "184 x 30 48H",
+      "A_2": "165x20 mm 48 h",
+      "A_1": "170 x 20 mm 18 h",
+      "A_0": "210x30 mm 48 h"
+    },
+    "Q_1": {
+      "text": "ottoteho",
+      "A_1": "1150 W",
+      "A_0": "950 W"
+    },
+    "Q_0": {
+      "text": "teho",
+      "A_3": "1350 W",
+      "A_2": "1800 W",
+      "A_1": "1300 W",
+      "A_0": "1150 W"
+    }
+  },
+  "20515080": {
+    "Q_0": {
+      "text": "liukkaudenestoluokitus",
+      "A_1": "R10/B",
+      "A_0": "R9"
+    }
+  },
+  "41405120": {
+    "Q_3": {
+      "text": "Tuotteen mitat",
+      "A_2": "75 x 75 x 66 cm",
+      "A_1": "65 x 75 x 66 cm",
+      "A_0": "65 x 65 x 31 cm"
+    },
+    "Q_2": {
+      "text": "Pakkaus",
+      "A_3": "67 x 33 x 67 cm",
+      "A_2": "112 x 65 x 58 cm",
+      "A_1": "67 x 88 x 68 cm",
+      "A_0": "88 x 88 x 68 cm"
+    },
+    "Q_1": {
+      "text": "Materiaalit",
+      "A_2": "Polyrottinki, ter\u00e4s",
+      "A_1": "Polyrottinki, alumiini, polyester",
+      "A_0": "Polyrottinki, alumiini, polyester, lasi"
+    },
+    "Q_0": {
+      "text": "Paino",
+      "A_3": "9,3 kg",
+      "A_2": "14 kg",
+      "A_1": "17,5 kg",
+      "A_0": "46 kg"
+    }
+  },
+  "22015040": {
+    "Q_0": {
+      "text": "levyn paketti",
+      "A_1": "4",
+      "A_0": "2"
+    }
+  },
+  "35503300": {
+    "Q_0": {
+      "text": "iskun pituus",
+      "A_1": "18 mm",
+      "A_0": "20 mm"
+    }
+  },
+  "33005080": {
+    "Q_0": {
+      "text": "Sis\u00e4lt\u00e4\u00e4",
+      "A_1": "projektorin, lukkorenkaat 8 kpl, kiuaslinssin, liitosjohdon, 50 W lamppu, GU5, 3-kanta.",
+      "A_0": "energians\u00e4\u00e4st\u00f6lamput"
+    }
+  },
+  "35064520": {
+    "Q_0": {
+      "text": "Normaalip\u00e4\u00e4",
+      "A_1": "15 m",
+      "A_0": "2,5 m"
+    }
+  },
+  "35505500": {
+    "Q_3": {
+      "text": "huullossyvyys",
+      "A_2": "9 mm",
+      "A_1": "0-8 mm",
+      "A_0": "0-9 mm"
+    },
+    "Q_2": {
+      "text": "h\u00f6yl\u00e4yssyvyys",
+      "A_3": "0-1,5 mm",
+      "A_2": "0-2,5 mm",
+      "A_1": "0-2,6 mm",
+      "A_0": "0-2 mm"
+    },
+    "Q_1": {
+      "text": "paino",
+      "A_1": "2,5 kg",
+      "A_0": "4,3 kg"
+    },
+    "Q_0": {
+      "text": "ottoteho",
+      "A_1": "720 W",
+      "A_0": "840 W"
+    }
+  },
+  "36005040": {
+    "Q_5": {
+      "text": "katkaisukapasiteetti",
+      "A_1": "90\u00b0 85 x 305 mm",
+      "A_0": "90 ast. 52 x 300 mm"
+    },
+    "Q_4": {
+      "text": "kapasiteetti",
+      "A_1": "90o 69x135 mm",
+      "A_0": "90o 320x76 mm"
+    },
+    "Q_3": {
+      "text": "ter\u00e4",
+      "A_1": "254 x 30 mm, 24H",
+      "A_0": "190 x 20 mm, 24H"
+    },
+    "Q_2": {
+      "text": "paino",
+      "A_2": "27,0 kg",
+      "A_1": "13,1 kg",
+      "A_0": "13,4 kg"
+    },
+    "Q_1": {
+      "text": "ottoteho",
+      "A_1": "1010 W, kierrosluku 6000 min-1",
+      "A_0": "1010 W"
+    },
+    "Q_0": {
+      "text": "teho",
+      "A_2": "1650 W",
+      "A_1": "1675 W",
+      "A_0": "1800 W"
+    }
+  },
+  "35504460": {
+    "Q_1": {
+      "text": "nauhan nopeus",
+      "A_1": "200\u2013330 m/min.",
+      "A_0": "75-270 m/min"
+    },
+    "Q_0": {
+      "text": "nauhan koko",
+      "A_2": "75 x 457 mm",
+      "A_1": "100 x 610 mm",
+      "A_0": "75 x 533 mm"
+    }
+  },
+  "35505360": {
+    "Q_0": {
+      "text": "kpl hiomapapereita",
+      "A_1": "9 ter\u00e4\u00e4, hiomalevy ja 10",
+      "A_0": "2 ter\u00e4\u00e4, hiomalevy ja 6"
+    }
+  },
+  "41205240": {
+    "Q_1": {
+      "text": "EN",
+      "A_1": "131 Hyv\u00e4ksytty malli",
+      "A_0": "131"
+    },
+    "Q_0": {
+      "text": "Kuljetuspituus",
+      "A_1": "3,9 m",
+      "A_0": "3 m"
+    }
+  },
+  "42205080": {
+    "Q_0": {
+      "text": "kasvukorkeus n.",
+      "A_1": "2 m.",
+      "A_0": "2 m"
+    }
+  },
+  "98020360": {
+    "Q_0": {
+      "text": "koko",
+      "A_2": "57 x 11,5 x 13 cm",
+      "A_1": "40 x 120 cm",
+      "A_0": "38 x 120 cm"
+    }
+  },
+  "27508040": {
+    "Q_0": {
+      "text": "Paino",
+      "A_1": "270kg",
+      "A_0": "287 kg"
+    }
+  },
+  "33005200": {
+    "Q_2": {
+      "text": "kanta",
+      "A_1": "G9",
+      "A_0": "G5"
+    },
+    "Q_1": {
+      "text": "Max.",
+      "A_1": "40 W",
+      "A_0": "60 W."
+    },
+    "Q_0": {
+      "text": "IP",
+      "A_1": "44.",
+      "A_0": "44"
+    }
+  },
+  "41405020": {
+    "Q_3": {
+      "text": "Tuotteen mitat",
+      "A_1": "91,5 x 150 x 75,5 cm",
+      "A_0": "56 x 101 x 71cm"
+    },
+    "Q_2": {
+      "text": "Pakkaus",
+      "A_1": "25,9 x 58 x 25,9 cm",
+      "A_0": "92 x 7,5 x 152 cm"
+    },
+    "Q_1": {
+      "text": "Materiaalit",
+      "A_1": "Alumiini/ter\u00e4s, karkaistu lasi",
+      "A_0": "Ter\u00e4s, 1x1 textilene"
+    },
+    "Q_0": {
+      "text": "Paino",
+      "A_1": "29 kg",
+      "A_0": "6 kg"
+    }
+  },
+  "36515080": {
+    "Q_2": {
+      "text": "Paino",
+      "A_1": "1,35 kg",
+      "A_0": "1,9 kg"
+    },
+    "Q_1": {
+      "text": "mm",
+      "A_1": "90-sarjan hakaset 18-40",
+      "A_0": "18G sarjan naulat 20-50"
+    },
+    "Q_0": {
+      "text": "Naulat",
+      "A_2": "18G 20-50mm",
+      "A_1": "18G 20-50 mm",
+      "A_0": "32-64 mm"
+    }
+  },
+  "36520160": {
+    "Q_1": {
+      "text": "kpl pakkaus",
+      "A_2": "2500",
+      "A_1": "3000",
+      "A_0": "2000"
+    },
+    "Q_0": {
+      "A_5": "25 mm",
+      "A_4": "64 mm",
+      "A_3": "20 mm",
+      "A_2": "50 mm",
+      "A_1": "38 mm",
+      "A_0": "32 mm",
+      "text": "Pituus"
+    }
+  },
+  "41405200": {
+    "Q_4": {
+      "A_4": "184 x 48 x 5 cm",
+      "A_3": "114 x 44 x 5 cm",
+      "A_2": "196 x 58 x 5 cm",
+      "A_1": "96 x 44 x 5 cm",
+      "A_0": "46 x 46 x 5 cm",
+      "text": "Tuotteen mitat"
+    },
+    "Q_3": {
+      "A_4": "184 x 48 x 5 cm",
+      "A_3": "114 x 44 x 5 cm",
+      "A_2": "196 x 58 x 5 cm",
+      "A_1": "96 x 44 x 5 cm",
+      "A_0": "46 x 46 x 5 cm",
+      "text": "Pakkaus"
+    },
+    "Q_2": {
+      "text": "Paino:",
+      "A_1": "1,4kg",
+      "A_0": "2,7"
+    },
+    "Q_1": {
+      "text": "Materiaalit",
+      "A_1": "100% Polyester",
+      "A_0": "100% polyester"
+    },
+    "Q_0": {
+      "text": "Paino",
+      "A_2": "1,2 kg",
+      "A_1": "0,6 kg",
+      "A_0": "3,5 kg"
+    }
+  },
+  "35504600": {
+    "Q_3": {
+      "text": "vakiona",
+      "A_1": "1 kpl laikka",
+      "A_0": "1 kpl laikkoja"
+    },
+    "Q_2": {
+      "text": "kierrosluku",
+      "A_2": "11000 min -1",
+      "A_1": "6500 min -1",
+      "A_0": "10000 min-1"
+    },
+    "Q_1": {
+      "text": "ottoteho",
+      "A_3": "2000 W",
+      "A_2": "2200 W",
+      "A_1": "2200 W, softstart",
+      "A_0": "720 W"
+    },
+    "Q_0": {
+      "text": "kierroslukualue",
+      "A_1": "0-6600 min-1",
+      "A_0": "0-6500 min-1"
+    }
+  },
+  "35630950": {
+    "Q_0": {
+      "text": "Karkeus",
+      "A_2": "20",
+      "A_1": "32, paksuus 25 mm",
+      "A_0": "20, paksuus 25 mm"
+    }
+  },
+  "36520040": {
+    "Q_0": {
+      "text": "Pituus",
+      "A_3": "75 mm",
+      "A_2": "50 mm",
+      "A_1": "65 mm",
+      "A_0": "90 mm"
+    }
+  },
+  "49565040": {
+    "Q_0": {
+      "text": "leikkuuleveys",
+      "A_1": "230 mm",
+      "A_0": "25 cm"
+    }
+  },
+  "36520080": {
+    "Q_0": {
+      "text": "Pituus",
+      "A_2": "75 mm",
+      "A_1": "50 mm",
+      "A_0": "64 mm"
+    }
+  },
+  "30010040": {
+    "Q_0": {
+      "text": "V\u00e4liovenpainike Abloy",
+      "A_3": "16/001, kromattu.",
+      "A_2": "16/001, satiini.",
+      "A_1": "15/001, valkoinen.",
+      "A_0": "16/001, valkoinen."
+    }
+  },
+  "35503340": {
+    "Q_2": {
+      "text": "iskun pituus",
+      "A_2": "29 mm",
+      "A_1": "32 mm",
+      "A_0": "28 mm"
+    },
+    "Q_1": {
+      "text": "tyhj\u00e4k\u00e4ynnin iskuluku",
+      "A_1": "0-2500 min-1",
+      "A_0": "0-2800 min-1"
+    },
+    "Q_0": {
+      "text": "ottoteho",
+      "A_2": "1010 W",
+      "A_1": "1250 W",
+      "A_0": "920 W"
+    }
+  },
+  "35504400": {
+    "Q_0": {
+      "text": "hioma-ala",
+      "A_1": "92 x 185 mm",
+      "A_0": "92x182 mm"
+    }
+  },
+  "36510320": {
+    "Q_0": {
+      "text": "Pituus",
+      "A_1": "20 m",
+      "A_0": "10 m"
+    }
+  },
+  "27505040": {
+    "Q_3": {
+      "text": "kivim\u00e4\u00e4r\u00e4 n.",
+      "A_2": "40 kg",
+      "A_1": "20 kg",
+      "A_0": "90 kg"
+    },
+    "Q_2": {
+      "text": "Suositeltava saunan koko",
+      "A_1": "8 - 20 m3.",
+      "A_0": "8 - 20 m3"
+    },
+    "Q_1": {
+      "A_5": "8-14 m\u00b3",
+      "A_4": "5-8 m\u00b3",
+      "A_3": "10-24 m\u00b3",
+      "A_2": "5-15 m\u00b3",
+      "A_1": "8-20 m\u00b3",
+      "A_0": "7-12 m\u00b3",
+      "text": "saunan koko"
+    },
+    "Q_0": {
+      "A_4": "40 kg",
+      "A_3": "20 kg",
+      "A_2": "30 kg",
+      "A_1": "200 kg",
+      "A_0": "120 kg",
+      "text": "kivim\u00e4\u00e4r\u00e4 maks."
+    }
+  },
+  "41405040": {
+    "Q_3": {
+      "text": "Tuotteen mitat",
+      "A_1": "\u00d8 60 x 68 cm",
+      "A_0": "62 x 67 x 85 cm"
+    },
+    "Q_2": {
+      "text": "Pakkaus",
+      "A_1": "62 x 67 x 85 cm",
+      "A_0": "62 x 7 x 72 cm"
+    },
+    "Q_1": {
+      "text": "Materiaalit",
+      "A_1": "Polyrottinki, ter\u00e4s",
+      "A_0": "Polyrottinki, ter\u00e4s, karkaistu lasi"
+    },
+    "Q_0": {
+      "text": "Paino",
+      "A_1": "3 kg",
+      "A_0": "8 kg"
+    }
+  },
+  "42010100": {
+    "Q_0": {
+      "text": "Pituus",
+      "A_1": "109 cm.",
+      "A_0": "112 cm."
+    }
+  },
+  "35505600": {
+    "Q_1": {
+      "text": "levitysteho",
+      "A_1": "5 m\u00b2/ 10 min.",
+      "A_0": "5 m\u00b2/ 12 min."
+    },
+    "Q_0": {
+      "text": "ruiskutusteho",
+      "A_2": "0-150 g/min",
+      "A_1": "0 \u2013 110 g/min",
+      "A_0": "0-110 g/min"
+    }
+  },
+  "35502200": {
+    "Q_2": {
+      "text": "kierrosluku",
+      "A_1": "0-1050 rpm",
+      "A_0": "0-1.100 min-1"
+    },
+    "Q_1": {
+      "text": "iskuluku",
+      "A_1": "0-4050 min-1",
+      "A_0": "0-4500 min-1"
+    },
+    "Q_0": {
+      "text": "iskuenergia",
+      "A_2": "1,5 J",
+      "A_1": "2,4 J",
+      "A_0": "2,3 J"
+    }
+  },
+  "35502100": {
+    "Q_0": {
+      "text": "teho",
+      "A_1": "1100 W",
+      "A_0": "1200 W"
+    }
+  },
+  "30020160": {
+    "Q_0": {
+      "text": "Riippulukko Abloy",
+      "A_1": "3020, 35mm sanka.",
+      "A_0": "3022, kaksoispakkaus."
+    }
+  }
+}
