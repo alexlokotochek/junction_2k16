@@ -46,8 +46,9 @@ def is_good_human_coord(new_coords):
                     break
     return is_good_coord
 
-SIN = math.sin(0.2)
-COS = math.cos(0.2)
+ALPHA = 0.03
+SIN = math.sin(ALPHA)
+COS = math.cos(ALPHA)
 
 class QuadcopterController(api.QuadcopterController):
     POWER_TO_VELOCITY = 0.0005
@@ -161,8 +162,12 @@ class Quadcopter:
             ln = distance((0, 0), (self.controller.x_velocity, self.controller.y_velocity))
             self.controller.x_velocity /= ln / QuadcopterController.MAX_SPEED
             self.controller.y_velocity /= ln / QuadcopterController.MAX_SPEED
+            angle = 0
             while self.intersects_wall_in_a_tick():
                 self.get_controller().turn()
+                angle += ALPHA
+                if angle >= 2 * math.pi:
+                    break
 
 
 class Human(api.Human):
@@ -215,7 +220,7 @@ class Human(api.Human):
                 self.move = possible_moves[randint(0, len(possible_moves) - 1)]
             self.x, self.y = self.x + Human.SPEED * self.move[0], self.y + Human.SPEED * self.move[1]
         else:
-            if distance((self.x, self.y), self.target) < Human.RADIUS + 10:
+            if distance((self.x, self.y), self.target) < Human.RADIUS + 3:
                 if self.copter is not None:
                     self.copter.human_to_move = None
                     self.copter = None
@@ -235,7 +240,7 @@ class Human(api.Human):
 
     def assign_to_copter(self, copter):
         self.copter = copter
-        wall = settings.walls[randint(0, len(settings.walls) - 1)]
+        wall = settings.walls[randint(2, len(settings.walls) - 1)]
         p = random()
         assert 0 <= p <= 1
         n = (wall[1][0] - wall[0][0], wall[1][1] - wall[0][1])
@@ -244,6 +249,18 @@ class Human(api.Human):
             n = (-n[0], -n[1])
         self.target = (wall[0][0] * p + wall[1][0] * (1 - p) + n[0] * Human.RADIUS,
                        wall[0][1] * p + wall[1][1] * (1 - p) + n[1] * Human.RADIUS)
+
+
+class KinectMan(Human):
+    def __init__(self, room, x, y):
+        super(KinectMan, self).__init__(room, x, y)
+
+    def update_coords(self):
+        #
+        pass
+
+    def perform_action(self):
+        pass
 
 
 class ChargingStation(api.ChargingStation):

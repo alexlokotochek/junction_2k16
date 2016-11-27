@@ -12,7 +12,7 @@ COPTER_COLOR = (8, 12, 59)
 WALL_COLOR = (8, 12, 59)
 
 COPTER_RADIUS = 10
-ZOOM = 2
+ZOOM = 1
 
 class Serializer:
    
